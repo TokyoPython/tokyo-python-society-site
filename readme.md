@@ -14,9 +14,6 @@ I propose three branches:
 - production  
 This is the production branch. Changes to this branch will ultimately affect the live site.
 
-- staging  
-This is the staging branch. Changes to this branch will affect a staging version of the application.
-
 - dev  
 This is the development branch. Changes to this branch are local
 
@@ -24,7 +21,26 @@ This is the development branch. Changes to this branch are local
 
 1. Install Python 3.10
 
-2. Install the dependencies from requirements.txt. *I recommend a virtual environment.*
+2. Create a virtual environment to install dependencies. 
+*I recommend venv as it is packaged with python.*
+(venv documentation here https://docs.python.org/3/library/venv.html)
+
+```
+Example using venv (Windows)
+
+$ python -m venv venv
+$ source venv/Scripts/activate
+
+Example using venv (MacOS/Linux)
+
+$ python -m venv venv
+$ source venv/bin/activate
+
+```
+
+After the above two lines, you should see (venv) or something similar in your terminal. 
+
+3. While inside your virtual environment, run `pip install -r requirements.txt`
 
 This will install everything needed to get the app running. The core app consists of:
 - Pytest
