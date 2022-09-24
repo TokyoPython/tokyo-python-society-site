@@ -9,7 +9,7 @@ Testing: PyTest
 
 ## Branch Information
 
-I propose three branches:
+I propose two branches:
 
 - production  
 This is the production branch. Changes to this branch will ultimately affect the live site.
