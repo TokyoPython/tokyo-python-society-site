@@ -1,0 +1,1 @@
+This frontend is based off of a barebones theme from creative gurus. They are referenced on the bottom of the page.

@@ -10,7 +10,7 @@ Testing: PyTest
 Front: JavaScript, Reactjs, Nextjs
 
 ## Frontend
-The frontend is compiled and bundled with Nextjs. 
+The frontend is compiled and bundled with Nextjs from a barebones template design. For more information please see the `front/README.md`.
 
 - Next.js allows for client-side navigation, which is faster than using html `<a></a>` tags. Routing is built in, so there is no need to install extra dependencies. [API reference for `Link`](https://nextjs.org/docs/api-reference/next/link).
 - Next.js does prefetching (in production); other pages are fetched in the background *after* the landing page has loaded, providing the visitor with lightning fast load times
@@ -51,7 +51,7 @@ After the above two lines, you should see (venv) or something similar in your te
 
 3. While inside your virtual environment, run `pip install -r requirements.txt`
 
-This will install everything needed to get the app running. The core app consists of:
+This will install everything needed to get the backend running. The core app consists of:
 - Pytest
 - FastAPI
 - uvicorn
