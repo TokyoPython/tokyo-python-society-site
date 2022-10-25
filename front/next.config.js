@@ -4,6 +4,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 module.exports = withBundleAnalyzer({
+  webpack: (config) => {
+    config.experiments = { ...config.experiments, ...{topLevelAwait: true}};
+    return config;
+  },
   poweredByHeader: false,
   trailingSlash: true,
   basePath: '',
