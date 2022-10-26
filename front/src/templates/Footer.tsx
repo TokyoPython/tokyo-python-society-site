@@ -13,6 +13,7 @@ const Footer = () => (
         logo={<Logo />}
         iconList={
           <>
+            {/* Github Icon */}
             <Link href={AppConfig.site_links.github}>
               <a>
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +21,7 @@ const Footer = () => (
                 </svg>
               </a>
             </Link>
-
+            {/* Facebook Icon */}
             <Link href={AppConfig.site_links.facebook}>
               <a>
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +29,7 @@ const Footer = () => (
                 </svg>
               </a>
             </Link>
-
+            {/* Empty Placeholder */}
             <Link href="/">
               <a>
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -39,6 +40,7 @@ const Footer = () => (
           </>
         }
       >
+        {/* Children of centered footer */}
         <li>
           <Link href="/">
             <a>Home</a>

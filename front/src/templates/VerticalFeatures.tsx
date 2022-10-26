@@ -7,7 +7,7 @@ const MEETUP_DAY = 'Wednesday';
 const VerticalFeatures = () => (
   <Section
     title="Who we are"
-    description="We're enthusiastic learners of Python. We're open to anyone (beginner to expert) interested in improving their knowledge or teaching others."
+    description="We're enthusiastic learners (not necessarily experts) of Python. We're open to anyone of any level interested in improving their knowledge or teaching others."
   >
     <VerticalFeatureRow
       title="Our Goal"

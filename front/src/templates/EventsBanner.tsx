@@ -26,15 +26,17 @@ const EventsBanner = () => {
             let date = new Date(event.node.dateTime).toDateString();
             // return JSX
             return (
-              <tr className="border-b-2" key={key}>
-                <td>{date}</td>
-                <td>{event.node.title}</td>
-                <td>
-                  <a className="text-blue-900">
-                    <Link href={event.node.eventUrl}>url here</Link>
-                  </a>
-                </td>
-              </tr>
+              
+                <tr className="border-b-2" key={key}>
+                  <td>{date}</td>
+                  <td>{event.node.title}</td>
+                  <td>
+                    <div className="text-blue-900">
+                      <Link href={event.node.eventUrl}>url here</Link>
+                    </div>
+                  </td>
+                </tr>
+              
             );
           })}
         </>
@@ -58,12 +60,14 @@ const EventsBanner = () => {
         </h3>
         <div className="mt-6 text-xl leading-9">
           <table className="w-full">
-            <tr className="border-b-2">
-              <th>Date</th>
-              <th>Event Name</th>
-              <th>URL</th>
-            </tr>
-            <Chart />
+            <tbody>
+              <tr className="border-b-2">
+                <th>Date</th>
+                <th>Event Name</th>
+                <th>URL</th>
+              </tr>
+              <Chart />
+            </tbody>
           </table>
         </div>
       </div>
