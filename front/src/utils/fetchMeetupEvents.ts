@@ -1,38 +1,18 @@
 import axios from "axios"
-import IEventResponse from "./meetupevents"
+import { AppConfig } from "./AppConfig"
 
-const getMeetupEvents = async (): Promise<IEventResponse[] | undefined > => {
-  const API_URL = "https://api.meetup.com/gql"
-  const DATA = await axios.post(API_URL, {
-    query: `query($groupURL: String!) {
-      groupByUrlname(urlname: $groupURL) {
-      name
-      link
-        upcomingEvents (input: {first: 5 }) {
-          edges {
-            node {
-              dateTime
-              title
-              eventUrl
-              id
-            }
-          }
-        }
-      }
-    }`,
-    variables: {
-      groupURL: "tokyopythonsocietyclub"
-    }
-  })
-
+const getMeetupEvents = async () => {
+  const API_URL = AppConfig.API.MEETUP_URL
   
-  // response is a list of nodes, type it as IEventResponse
-  const response = DATA.data.data.groupByUrlname.upcomingEvents.edges;
-
-  if (!response) {
-    console.log("Unable to obtain event information")
+  if (!API_URL) {
+    console.log(`Could not get API URL: ${API_URL}, check env variables`)
     return
   }
+
+  // response is a list of nodes, type it as IEventResponse
+  const response = axios.get(`${API_URL}/meetupevents`);
+
+  console.log(response)
 
   return response
 }

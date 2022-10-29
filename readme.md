@@ -4,9 +4,9 @@
 
 Language: Python 3.10  
 Libraries: FastAPI  
-Database: Postgres (version to be determined)  
-Formatter: Black 22.8.0  
-Testing: PyTest  
+Database: Postgres (version to be determined) (10/29 currently not in use, installation not required)
+Formatter: Black 22.8.0
+Testing: PyTest
 Front: JavaScript, Reactjs, Nextjs
 
 ## Frontend
@@ -18,6 +18,9 @@ The frontend is compiled and bundled with Nextjs from a barebones template desig
 - The biggest pull for me was that responsiveness has been built in. We do not need to worry about catering to all sorts of screen sizes (this is mostly due to good TailwindCSS conventions)
 
 ## Branch Information
+
+- main
+As of 10/29 we are committing directly to main, as the content is not yet ready to be opened up to the public to be worked on.
 
 - production  
 This is the production branch. Changes to this branch will ultimately affect the live site.
@@ -63,9 +66,17 @@ Everything else seen in requirements.txt are dependencies of the above.
 
 3. Install the appropriate code formatter. See `Tools` above for the formatter we use. 
 
+4. Set an .env file. The app will not run without this. It is not stored in source control for security reasons. Please see `back/readme.md` for more information.
+
 ## Running the App
 
 `uvicorn main:app --reload`
+
+## Checking to see that the app works as intended
+
+Visit `http://127.0.0.1:8000` and you should see {"Hello": "World"} as a JSON response. If you do not, please ask the Python Society group for troubleshooting help.
+
+If you have gotten this far, then your backend has been set up for development.
 
 ## Seeing the endpoints
 

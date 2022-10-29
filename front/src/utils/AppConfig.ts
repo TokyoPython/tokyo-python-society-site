@@ -1,3 +1,5 @@
+console.log(process.env.NODE_ENV)
+
 export const AppConfig = {
   site_name: 'Tokyo Python Society',
   title: 'Tokyo Python Society',
@@ -11,4 +13,7 @@ export const AppConfig = {
     facebook: 'https://www.facebook.com/groups/TokyoPythonSocietyClub',
     slack: 'https://tokyo-python-sc.slack.com',
   },
+  API: {
+    MEETUP_URL: process.env.MEETUP_URL
+  }
 };

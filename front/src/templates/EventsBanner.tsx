@@ -1,15 +1,29 @@
-import { useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import className from 'classnames';
 import Link from 'next/link';
 import {getMeetupEvents} from '../utils/fetchMeetupEvents'
 import IEventResponse from '../utils/meetupevents';
 
-// response is a list of nodes
-// for now, type it as IEventResponse
-const response: IEventResponse[] | undefined = await getMeetupEvents();
-
 const EventsBanner = () => {
-  const data = useMemo(() => response, []);
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await getMeetupEvents();
+      console.log(response)  
+      if (response) {
+        const eventsList = response.data.groupeventlist
+        setData(eventsList)
+      }
+      else {
+        throw("Could not fetch meetup events")
+      }
+
+    }
+    fetchData()
+      .catch(console.error)
+  })
+
   const eventsBannerClass = className(
     'mt-20',
     'flex',
@@ -17,8 +31,16 @@ const EventsBanner = () => {
     'items-center'
   );
   const Chart = () => {
-    if (data) {
+    if (!data) {
       return (
+        <tr className="border-b-2">
+            <td>NA</td>
+            <td>NA</td>
+            <td>NA</td>
+        </tr>
+        )
+      }
+    return (
         // return data if successful response
         <>
           {data.map((event: IEventResponse, key: number) => {
@@ -42,15 +64,6 @@ const EventsBanner = () => {
         </>
       )
     }
-    else {
-      return (
-        <tr className="border-b-2">
-            <td>NA</td>
-            <td>NA</td>
-            <td>NA</td>
-        </tr>
-    )}
-  }
 
   return (
     <div className={eventsBannerClass}>
@@ -73,5 +86,7 @@ const EventsBanner = () => {
       </div>
     </div>
   );
-};
+}
 export { EventsBanner };
+
+

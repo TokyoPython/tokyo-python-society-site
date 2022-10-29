@@ -22,10 +22,7 @@ def read_root():
 # GET meetup events
 @app.get("/meetupevents/")
 def get_meetup_events():
-    """Fetch from meetup API.
-
-    Arguments: none
-    """
+    """Fetch from meetup API."""
     # Fetch endpoint from .env file
     MEETUP_GRAPHQL_ENDPOINT = get_env_var("MEETUP_GRAPHQL_URL")
 
