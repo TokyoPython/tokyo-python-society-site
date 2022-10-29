@@ -22,6 +22,7 @@ const VerticalFeatures = () => (
       imageAlt="Second feature alt text"
       reverse
     />
+    {/* Upcoming Events Banner */}
     <EventsBanner></EventsBanner>
   </Section>
 );
