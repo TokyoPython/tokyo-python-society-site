@@ -6,14 +6,22 @@ export const AppConfig = {
   description: 'Made with Nextjs Boilerplate with Tailwind CSS',
   locale: 'en',
   site_links: {
-    github: 'https://github.com/TokyoPython',
-    blog: '/blog',
-    about: '/about',
-    contact: '/contact',
-    facebook: 'https://www.facebook.com/groups/TokyoPythonSocietyClub',
-    slack: 'https://tokyo-python-sc.slack.com',
+    external: {
+      discord: "https://discord.gg/7mXFufd8",
+      github: 'https://github.com/TokyoPython',
+      facebook: 'https://www.facebook.com/groups/TokyoPythonSocietyClub',
+      slack: 'https://tokyo-python-sc.slack.com',
+      meetup: "https://www.meetup.com/ja-JP/tokyopythonsocietyclub",
+    },
+    internal: {
+      blog: '/blog',
+      about: '/about',
+      contact: '/contact',
+    }
   },
   API: {
-    MEETUP_URL: process.env.MEETUP_URL
+    MEETUP_URL: process.env.NEXT_PUBLIC_MEETUP_URL
   }
 };
+
+console.log(AppConfig.API.MEETUP_URL)

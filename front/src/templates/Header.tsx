@@ -11,22 +11,22 @@ const Header = () => (
     <Section yPadding="py-8">
       <NavbarTwoColumns logo={<Logo xl />}>
         <li>
-          <Link href={AppConfig.site_links.github}>
+          <Link href={AppConfig.site_links.external.github}>
             <a>GitHub</a>
           </Link>
         </li>
         <li>
-          <Link href={AppConfig.site_links.blog}>
+          <Link href={AppConfig.site_links.internal.blog}>
             <a>Blog</a>
           </Link>
         </li>
         <li>
-          <Link href={AppConfig.site_links.about}>
+          <Link href={AppConfig.site_links.internal.about}>
             <a>About</a>
           </Link>
         </li>
         <li>
-          <Link href={AppConfig.site_links.contact}>
+          <Link href={AppConfig.site_links.internal.contact}>
             <a>Contact</a>
           </Link>
         </li>

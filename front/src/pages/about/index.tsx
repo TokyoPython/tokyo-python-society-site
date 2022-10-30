@@ -1,20 +1,16 @@
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 function About() {
   const router = useRouter()
 
-  useEffect(() => {
-   // the counter changed 
-  }, [router.query.counter])
+  console.log(router)
 
 
   return (
     <>
-  <h2>Hi</h2>
-  <div>About</div>
+      <div>This is the about page. We don't really need this I guess.</div>
 
-  Original site template borrowed with{' '}
+    Original site template borrowed with{' '}
     <span role="img" aria-label="Love">
       ♥
     </span>{' '}

@@ -2,9 +2,18 @@ from fastapi import FastAPI, Query, HTTPException
 import requests
 import dotenv
 from helpers.get_env_var import get_env_var
+from fastapi.middleware.cors import CORSMiddleware
 
 # Load FastAPI
 app = FastAPI()
+
+# Allow origins 
+origins = [
+  "http://localhost:3000",
+  "http://localhost"
+]
+
+app.add_middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True, allow_methods=["*"], allow_headers=["*"],)
 
 # Load system environment variables
 dotenv.load_dotenv()
@@ -20,7 +29,7 @@ def read_root():
     return {"Hello": "World"}
 
 # GET meetup events
-@app.get("/meetupevents/")
+@app.get("/meetupevents")
 def get_meetup_events():
     """Fetch from meetup API."""
     # Fetch endpoint from .env file

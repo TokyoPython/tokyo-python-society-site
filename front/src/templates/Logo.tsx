@@ -13,11 +13,12 @@ const Logo = (props: ILogoProps) => {
 
   return (
     <span className={`text-gray-900 inline-flex items-center ${fontStyle}`}>
+      
       <SVGComponent
         height={parseInt(size, 10)}
         width={parseInt(size, 10) + 10}
       />
-
+      
       {AppConfig.site_name}
     </span>
   );

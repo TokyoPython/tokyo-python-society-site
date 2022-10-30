@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import className from 'classnames';
 import Link from 'next/link';
-import {getMeetupEvents} from '../utils/fetchMeetupEvents'
+import { getMeetupEvents } from '../utils/fetchMeetupEvents'
 import IEventResponse from '../utils/meetupevents';
 
 const EventsBanner = () => {
@@ -10,7 +10,7 @@ const EventsBanner = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await getMeetupEvents();
-      console.log(response)  
+      console.log(response)
       if (response) {
         const eventsList = response.data.groupeventlist
         setData(eventsList)
@@ -18,11 +18,10 @@ const EventsBanner = () => {
       else {
         throw("Could not fetch meetup events")
       }
-
     }
     fetchData()
       .catch(console.error)
-  })
+  }, [])
 
   const eventsBannerClass = className(
     'mt-20',
@@ -33,7 +32,7 @@ const EventsBanner = () => {
   const Chart = () => {
     if (!data) {
       return (
-        <tr className="border-b-2">
+        <tr className="border-b-2 even:bg-slate-100">
             <td>NA</td>
             <td>NA</td>
             <td>NA</td>
@@ -49,7 +48,7 @@ const EventsBanner = () => {
             // return JSX
             return (
               
-                <tr className="border-b-2" key={key}>
+                <tr className="border-b-2 even:bg-slate-100" key={key}>
                   <td>{date}</td>
                   <td>{event.node.title}</td>
                   <td>

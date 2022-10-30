@@ -10,12 +10,9 @@ Testing: PyTest
 Front: JavaScript, Reactjs, Nextjs
 
 ## Frontend
-The frontend is compiled and bundled with Nextjs from a barebones template design. For more information please see the `front/README.md`.
+The frontend is compiled and bundled with Nextjs from a barebones template design. 
 
-- Next.js allows for client-side navigation, which is faster than using html `<a></a>` tags. Routing is built in, so there is no need to install extra dependencies. [API reference for `Link`](https://nextjs.org/docs/api-reference/next/link).
-- Next.js does prefetching (in production); other pages are fetched in the background *after* the landing page has loaded, providing the visitor with lightning fast load times
-- Developing on NextJS is a breeze since it caters to the developer. Fast reload is built in, and with `npm run dev` you can immediately start contributing.
-- The biggest pull for me was that responsiveness has been built in. We do not need to worry about catering to all sorts of screen sizes (this is mostly due to good TailwindCSS conventions)
+For more information for design decisions and implementation please see `front/README.md`
 
 ## Branch Information
 
@@ -29,7 +26,7 @@ This is the production branch. Changes to this branch will ultimately affect the
 - dev  
 This is the development branch. Changes to this branch are local. 
 
-## Setting Up the Environment
+## Setting Up the Environment (Back)
 
 1. Install Python 3.10
 
@@ -68,11 +65,13 @@ Everything else seen in requirements.txt are dependencies of the above.
 
 4. Set an .env file. The app will not run without this. It is not stored in source control for security reasons. Please see `back/readme.md` for more information.
 
-## Running the App
+## Running the App (Backend)
 
 `uvicorn main:app --reload`
 
-## Checking to see that the app works as intended
+## Checking to see that the app works as intended (Back)
+
+Please complete the above steps before moving here.
 
 Visit `http://127.0.0.1:8000` and you should see {"Hello": "World"} as a JSON response. If you do not, please ask the Python Society group for troubleshooting help.
 
@@ -87,3 +86,20 @@ If you have gotten this far, then your backend has been set up for development.
 ## Alternative API docs
 
 `http://127.0.0.1:8000/redoc`
+
+
+
+
+## Setting Up the Environment (Front)
+Create a .env.local file at `/front` and add `MEETUP_URL=http://localhost:8000` to the environment file. 
+
+The app will not work without being able to access the MEETUP_URL endpoint. 
+
+From the /front directory run `npm install`
+
+## Running the App (Front)
+For development, run `npm run dev`
+
+Then visit `http://localhost:3000` and verify that the page successfully loads. 
+
+The frontend and backend are successfully connected if there is meetup event information at the bottom of the page. 
