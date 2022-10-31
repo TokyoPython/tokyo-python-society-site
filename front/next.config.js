@@ -5,8 +5,12 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 module.exports = withBundleAnalyzer({
   webpack: (config) => {
-    config.experiments = { ...config.experiments, ...{topLevelAwait: true}};
+    config.experiments = { ...config.experiments, ...{ topLevelAwait: true } };
     return config;
+  },
+  images: {
+    loader: 'akamai',
+    path: '',
   },
   poweredByHeader: false,
   trailingSlash: true,
