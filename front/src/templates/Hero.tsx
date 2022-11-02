@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import { Background } from '../background/Background';
 import { Button } from '../button/Button';
 import { HeroOneButton } from '../hero/HeroOneButton';
@@ -13,11 +11,11 @@ const Hero = () => (
         title={<>{'Welcome to the Tokyo Python Society \n'}</>}
         description="Come hang out at our Discord"
         button={
-          <Link href={AppConfig.site_links.external.discord}>
-            <a>
-              <Button xl>Join Our Discord</Button>
-            </a>
-          </Link>
+          <Button
+            url={AppConfig.site_links.external.discord}
+          >
+            Join Our Discord
+          </Button>
         }
       />
     </Section>

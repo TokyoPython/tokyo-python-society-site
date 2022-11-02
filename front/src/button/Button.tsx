@@ -1,45 +1,19 @@
-import className from 'classnames';
-
 type IButtonProps = {
-  xl?: boolean;
   children: string;
+  url: string;
 };
 
 const Button = (props: IButtonProps) => {
-  const btnClass = className({
-    btn: true,
-    'btn-xl': props.xl,
-    'btn-base': !props.xl,
-    'btn-primary': true,
-  });
-
   return (
-    <div className={btnClass}>
-      {props.children}
-
-      <style jsx>
-        {`
-          .btn {
-            @apply inline-block rounded-md text-center;
-          }
-
-          .btn-base {
-            @apply text-lg font-semibold py-2 px-4;
-          }
-
-          .btn-xl {
-            @apply font-extrabold text-xl py-4 px-6;
-          }
-
-          .btn-primary {
-            @apply text-white bg-green-500;
-          }
-
-          .btn-primary:hover {
-            @apply bg-green-600;
-          }
-        `}
-      </style>
+    <div className="mt-5 sm:mt-8 sm:flex justify-start">
+      <div className="rounded-md shadow">
+        <a
+          href={props.url}
+          className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
+        >
+          {props.children}
+        </a>
+      </div>
     </div>
   );
 };

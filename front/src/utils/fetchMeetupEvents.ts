@@ -1,11 +1,9 @@
 import axios from "axios"
 import { AppConfig } from "./AppConfig"
 
-console.log(AppConfig.title)
-console.log(AppConfig.API.MEETUP_URL)
 const getMeetupEvents = async () => {
   const API_URL = AppConfig.API.MEETUP_URL
- 
+
   if (!API_URL) {
     console.log(`Could not get API URL: ${API_URL}, check env variables`)
     return

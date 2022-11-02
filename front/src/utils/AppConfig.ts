@@ -1,5 +1,3 @@
-console.log(process.env.NODE_ENV)
-
 export const AppConfig = {
   site_name: 'Tokyo Python Society',
   title: 'Tokyo Python Society',
@@ -23,5 +21,3 @@ export const AppConfig = {
     MEETUP_URL: process.env.NEXT_PUBLIC_MEETUP_URL
   }
 };
-
-console.log(AppConfig.API.MEETUP_URL)
