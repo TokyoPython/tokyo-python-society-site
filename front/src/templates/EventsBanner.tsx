@@ -10,13 +10,12 @@ const EventsBanner = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await getMeetupEvents();
-      console.log(response)
       if (response) {
         const eventsList = response.data.groupeventlist
         setData(eventsList)
       }
       else {
-        throw("Could not fetch meetup events")
+        throw ("Could not fetch meetup events")
       }
     }
     fetchData()
@@ -33,36 +32,36 @@ const EventsBanner = () => {
     if (!data) {
       return (
         <tr className="border-b-2 even:bg-slate-100">
-            <td>NA</td>
-            <td>NA</td>
-            <td>NA</td>
+          <td>NA</td>
+          <td>NA</td>
+          <td>NA</td>
         </tr>
-        )
-      }
-    return (
-        // return data if successful response
-        <>
-          {data.map((event: IEventResponse, key: number) => {
-            // cleanse date
-            let date = new Date(event.node.dateTime).toDateString();
-            // return JSX
-            return (
-              
-                <tr className="border-b-2 even:bg-slate-100" key={key}>
-                  <td>{date}</td>
-                  <td>{event.node.title}</td>
-                  <td>
-                    <div className="text-blue-900">
-                      <Link href={event.node.eventUrl}>url here</Link>
-                    </div>
-                  </td>
-                </tr>
-              
-            );
-          })}
-        </>
       )
     }
+    return (
+      // return data if successful response
+      <>
+        {data.map((event: IEventResponse, key: number) => {
+          // cleanse date
+          let date = new Date(event.node.dateTime).toDateString();
+          // return JSX
+          return (
+
+            <tr className="border-b-2 even:bg-slate-100" key={key}>
+              <td>{date}</td>
+              <td>{event.node.title}</td>
+              <td>
+                <div className="text-blue-900">
+                  <Link href={event.node.eventUrl}>url here</Link>
+                </div>
+              </td>
+            </tr>
+
+          );
+        })}
+      </>
+    )
+  }
 
   return (
     <div className={eventsBannerClass}>

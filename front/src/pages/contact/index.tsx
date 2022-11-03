@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { Meta } from '../../layout/Meta';
 import { AppConfig } from '../../utils/AppConfig';
@@ -11,6 +12,9 @@ type IFormProps = {
 const ContactForm = (props: IFormProps) => {
   const iconHeight = 50;
   const iconWidth = 50;
+  const router = useRouter();
+  console.log(router.basePath)
+  console.log(router)
   return (
     <div className="text-center	">
       <h1 className="text-xl">{props.children}</h1>
@@ -18,7 +22,7 @@ const ContactForm = (props: IFormProps) => {
         <span className="hover:cursor-pointer">
           <Link href={AppConfig.site_links.external.discord} passHref>
             <Image
-              src="/assets/images/discord-icon.svg"
+              src="../assets/images/discord-icon.svg"
               height={iconHeight}
               width={iconWidth}
               alt="Discord"
@@ -28,7 +32,7 @@ const ContactForm = (props: IFormProps) => {
         <span className="hover:cursor-pointer">
           <Link href={AppConfig.site_links.external.meetup} passHref>
             <Image
-              src="/assets/images/meetup-icon.svg"
+              src="../assets/images/meetup-icon.svg"
               height={iconHeight}
               width={iconWidth}
               alt="Meetup"
@@ -38,7 +42,7 @@ const ContactForm = (props: IFormProps) => {
         <span className="hover:cursor-pointer">
           <Link href={AppConfig.site_links.external.facebook} passHref>
             <Image
-              src="/assets/images/facebook-icon.svg"
+              src="../assets/images/facebook-icon.svg"
               height={iconHeight}
               width={iconWidth}
               alt="Facebook"
@@ -48,7 +52,7 @@ const ContactForm = (props: IFormProps) => {
         <span className="hover:cursor-pointer">
           <Link href={AppConfig.site_links.external.slack} passHref>
             <Image
-              src="/assets/images/slack-icon.svg"
+              src="../assets/images/slack-icon.svg"
               height={iconHeight}
               width={iconWidth}
               alt="Slack"
