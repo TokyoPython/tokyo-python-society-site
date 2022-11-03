@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-
 import { Meta } from '../../layout/Meta';
 import { AppConfig } from '../../utils/AppConfig';
 
@@ -12,9 +10,6 @@ type IFormProps = {
 const ContactForm = (props: IFormProps) => {
   const iconHeight = 50;
   const iconWidth = 50;
-  const router = useRouter();
-  console.log(router.basePath)
-  console.log(router)
   return (
     <div className="text-center	">
       <h1 className="text-xl">{props.children}</h1>

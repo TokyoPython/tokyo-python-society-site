@@ -1,6 +1,6 @@
 type IButtonProps = {
   children: string;
-  url: string;
+  url?: string;
 };
 
 const Button = (props: IButtonProps) => {
