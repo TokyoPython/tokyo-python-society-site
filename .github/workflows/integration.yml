@@ -35,6 +35,7 @@ jobs:
 
       - name: Deploy the static bundle
         uses: appleboy/scp-action@master
+        environment: MSoup Digital Ocean Droplet
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
