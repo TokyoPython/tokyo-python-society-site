@@ -29,3 +29,7 @@ jobs:
         run: |
           cd front
           npm run build
+      
+      - name: Check the results
+        run: ls /home/runner/work/tokyo-python-society-site/tokyo-python-society-site/front/out
+
