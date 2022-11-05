@@ -1,7 +1,7 @@
 export const AppConfig = {
   site_name: 'Tokyo Python Society',
   title: 'Tokyo Python Society',
-  description: 'From a Nextjs Boilerplate with Tailwind CSS',
+  description: 'From feature/test a Nextjs Boilerplate with Tailwind CSS',
   locale: 'en',
   site_links: {
     external: {
