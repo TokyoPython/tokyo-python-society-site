@@ -42,4 +42,4 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           source: "/home/runner/work/tokyo-python-society-site/tokyo-python-society-site/front/out"
-          target: "/"
+          target: "test"
