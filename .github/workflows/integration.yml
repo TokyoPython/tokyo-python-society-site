@@ -34,7 +34,7 @@ jobs:
       - name: Check the results
         run: ls /home/runner/work/tokyo-python-society-site/tokyo-python-society-site/front/out
 
-      - name: Deploy static bundle to droplet
+      - name: Static bundle to droplet
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
