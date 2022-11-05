@@ -22,8 +22,8 @@ jobs:
           cd front
           npm ci
 
-      - name: Test application
-        run: npm test
+      # - name: Test application
+      #   run: npm test
 
       - name: Build application
         run: npm run build
