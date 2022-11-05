@@ -39,7 +39,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           source: "/home/runner/work/tokyo-python-society-site/tokyo-python-society-site/front/out"
           target: "/"
