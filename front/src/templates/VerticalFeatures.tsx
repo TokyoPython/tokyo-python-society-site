@@ -10,13 +10,13 @@ const VerticalFeatures = () => (
     description="We're enthusiastic learners (not necessarily experts) of Python. We're open to anyone of any level interested in improving their knowledge or teaching others."
   >
     <VerticalFeatureRow
-      title="Our Goal"
-      description="We hope to build a tech community with a focus on learning and building together with Python."
+      title="Meetups"
+      description="We hope to build a tech community with a focus on learning and building together with Python. As a result, we host weekly meetups. See the meetup calendar below!"
       image="/assets/images/coding.svg"
       imageAlt="First feature alt text"
     />
     <VerticalFeatureRow
-      title="How to get involved"
+      title="Chat with Us"
       description={`We are most active on Discord. We also meet up every ${MEETUP_DAY}`}
       image="/assets/images/community.svg"
       imageAlt="Second feature alt text"

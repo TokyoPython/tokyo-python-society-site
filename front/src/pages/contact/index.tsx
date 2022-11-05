@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+
 import { Meta } from '../../layout/Meta';
 import { AppConfig } from '../../utils/AppConfig';
 
