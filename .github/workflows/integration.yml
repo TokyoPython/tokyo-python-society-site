@@ -43,3 +43,6 @@ jobs:
           port: ${{ secrets.PORT }}
           source: "/home/runner/work/tokyo-python-society-site/tokyo-python-society-site/front/out"
           target: "test"
+      
+      - name: Replace current bundle
+        run: ssh -i ${{ secrets.KEY }} ${{secrets.USERNAME}}@${{ secrets.HOST }} && ls
