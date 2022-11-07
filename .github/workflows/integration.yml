@@ -51,4 +51,4 @@ jobs:
           echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
  
       - name: Replace current bundle
-        run: ssh -i ~/.ssh/id_rsa ${{secrets.USERNAME}}@${{ secrets.HOST }} && ls
+        run: ssh -i ~/.ssh/id_rsa ${{secrets.USERNAME}}@${{ secrets.HOST }} && pwd && ls -a
