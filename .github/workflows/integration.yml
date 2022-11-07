@@ -44,5 +44,11 @@ jobs:
           source: "/home/runner/work/tokyo-python-society-site/tokyo-python-society-site/front/out"
           target: "test"
       
+      - name: Create SSH key
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+ 
       - name: Replace current bundle
-        run: ssh -i ${{ secrets.KEY }} ${{secrets.USERNAME}}@${{ secrets.HOST }} && ls
+        run: ssh -i ~/.ssh/id_rsa ${{secrets.USERNAME}}@${{ secrets.HOST }} && ls
