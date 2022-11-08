@@ -1,4 +1,5 @@
 name: Continuous Integration
+author: MSoup
 
 on:
   pull_request:
@@ -6,7 +7,7 @@ on:
       - main
 
 jobs:
-  merge_pull_request:
+  build_bundle:
     runs-on: ubuntu-latest
     environment: MSoup Digital Ocean Droplet
     steps:
@@ -31,10 +32,10 @@ jobs:
           cd front
           npm run build
       
-      - name: Check the results
+      - name: Check the results locally
         run: ls /home/runner/work/tokyo-python-society-site/tokyo-python-society-site/front/out
 
-      - name: Static bundle to DO Droplet
+      - name: Deploy static bundle to DO Droplet
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -51,4 +52,4 @@ jobs:
           echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
  
       - name: Replace current bundle
-        run: ssh -i ~/.ssh/id_rsa ${{secrets.USERNAME}}@${{ secrets.HOST }} && pwd && ls -a
+        run: ssh -i ~/.ssh/id_rsa ${{secrets.USERNAME}}@${{ secrets.HOST }} "mv /data/www/alpha /data/www/${{ github.event.repository.updated_at}}_alpha && mv /home/tps/test/github/workspace/front/out /data/www/alpha"

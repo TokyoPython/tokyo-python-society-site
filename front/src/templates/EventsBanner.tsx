@@ -15,6 +15,7 @@ const EventsBanner = () => {
         setData(eventsList)
       }
       else {
+        setData([])
         throw ("Could not fetch meetup events")
       }
     }
