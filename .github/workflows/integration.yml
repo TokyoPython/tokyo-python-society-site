@@ -1,5 +1,4 @@
 name: Continuous Integration
-author: MSoup
 
 on:
   pull_request:
