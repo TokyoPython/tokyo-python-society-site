@@ -5,18 +5,29 @@ import { getMeetupEvents } from '../utils/fetchMeetupEvents'
 import IEventResponse from '../utils/meetupevents';
 
 const EventsBanner = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState<IEventResponse[]>([])
+  const [visible, setVisible] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await getMeetupEvents();
-      if (response) {
-        const eventsList = response.data.groupeventlist
+      try {
+        const response = await getMeetupEvents();
+        const eventsList: IEventResponse[] = response!.data.groupeventlist
         setData(eventsList)
       }
-      else {
-        setData([])
-        throw ("Could not fetch meetup events")
+      // Axios / network error
+      catch (error) {
+        setVisible(false)
+        setData([
+          {
+            node: {
+              id: "1",
+              title: "NA",
+              dateTime: "NA",
+              eventUrl: "NA",
+            }
+          },
+        ])
       }
     }
     fetchData()
@@ -30,15 +41,6 @@ const EventsBanner = () => {
     'items-center'
   );
   const Chart = () => {
-    if (!data) {
-      return (
-        <tr className="border-b-2 even:bg-slate-100">
-          <td>NA</td>
-          <td>NA</td>
-          <td>NA</td>
-        </tr>
-      )
-    }
     return (
       // return data if successful response
       <>
@@ -49,15 +51,14 @@ const EventsBanner = () => {
           return (
 
             <tr className="border-b-2 even:bg-slate-100" key={key}>
-              <td>{date}</td>
+              <td><div className={!visible ? "invisible" : ""}>{date}</div></td>
               <td>{event.node.title}</td>
               <td>
-                <div className="text-blue-900">
+                <div className={visible ? "text-blue-900" : "invisible"}>
                   <Link href={event.node.eventUrl}>url here</Link>
                 </div>
               </td>
             </tr>
-
           );
         })}
       </>
