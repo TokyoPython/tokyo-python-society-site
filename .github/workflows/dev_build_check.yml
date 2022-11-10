@@ -8,7 +8,6 @@ on:
 jobs:
   check_if_builds:
     runs-on: ubuntu-latest
-    environment: MSoup Digital Ocean Droplet
     steps:
       - name: Checkout main branch
         uses: actions/checkout@v2
