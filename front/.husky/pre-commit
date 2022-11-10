@@ -1,5 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+echo 'running pre-commit checks...'
+
 # Disable concurent to run build-types after ESLint in lint-staged
-FORCE_COLOR=1 npx lint-staged --concurrent false
+npx lint-staged -q --concurrent false
