@@ -5,7 +5,7 @@ export const AppConfig = {
   locale: 'en',
   site_links: {
     external: {
-      discord: 'https://discord.gg/7mXFufd8',
+      discord: 'https://discord.com/invite/kqhzghtcds',
       github: 'https://github.com/TokyoPython',
       facebook: 'https://www.facebook.com/groups/TokyoPythonSocietyClub',
       slack: 'https://tokyo-python-sc.slack.com',
