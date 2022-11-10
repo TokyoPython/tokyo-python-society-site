@@ -1,38 +1,38 @@
 import { useEffect, useState } from 'react';
+
 import className from 'classnames';
 import Link from 'next/link';
-import { getMeetupEvents } from '../utils/fetchMeetupEvents'
+
+import { getMeetupEvents } from '../utils/fetchMeetupEvents';
 import IEventResponse from '../utils/meetupevents';
 
 const EventsBanner = () => {
-  const [data, setData] = useState<IEventResponse[]>([])
-  const [visible, setVisible] = useState(true)
+  const [data, setData] = useState<IEventResponse[]>([]);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await getMeetupEvents();
-        const eventsList: IEventResponse[] = response!.data.groupeventlist
-        setData(eventsList)
-      }
-      // Axios / network error
-      catch (error) {
-        setVisible(false)
+        const eventsList: IEventResponse[] = response!.data.groupeventlist;
+        setData(eventsList);
+      } catch (error) {
+        // Axios / network error
+        setVisible(false);
         setData([
           {
             node: {
-              id: "1",
-              title: "NA",
-              dateTime: "NA",
-              eventUrl: "NA",
-            }
+              id: '1',
+              title: 'NA',
+              dateTime: 'NA',
+              eventUrl: 'NA',
+            },
           },
-        ])
+        ]);
       }
-    }
-    fetchData()
-      .catch(console.error)
-  }, [])
+    };
+    fetchData().catch(console.error);
+  }, []);
 
   const eventsBannerClass = className(
     'mt-20',
@@ -46,15 +46,16 @@ const EventsBanner = () => {
       <>
         {data.map((event: IEventResponse, key: number) => {
           // cleanse date
-          let date = new Date(event.node.dateTime).toDateString();
+          const date = new Date(event.node.dateTime).toDateString();
           // return JSX
           return (
-
             <tr className="border-b-2 even:bg-slate-100" key={key}>
-              <td><div className={!visible ? "invisible" : ""}>{date}</div></td>
+              <td>
+                <div className={!visible ? 'invisible' : ''}>{date}</div>
+              </td>
               <td>{event.node.title}</td>
               <td>
-                <div className={visible ? "text-blue-900" : "invisible"}>
+                <div className={visible ? 'text-blue-900' : 'invisible'}>
                   <Link href={event.node.eventUrl}>url here</Link>
                 </div>
               </td>
@@ -62,8 +63,8 @@ const EventsBanner = () => {
           );
         })}
       </>
-    )
-  }
+    );
+  };
 
   return (
     <div className={eventsBannerClass}>
@@ -86,7 +87,5 @@ const EventsBanner = () => {
       </div>
     </div>
   );
-}
+};
 export { EventsBanner };
-
-
