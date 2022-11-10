@@ -4,6 +4,7 @@ import { Button } from '../button/Button';
 import { CTABanner } from '../cta/CTABanner';
 import { Section } from '../layout/Section';
 
+// Not used anymore
 const Banner = () => (
   <Section>
     <CTABanner
