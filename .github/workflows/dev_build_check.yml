@@ -1,0 +1,33 @@
+name: Continuous Integration to dev
+
+on:
+  pull_request:
+    branches:
+      - production
+
+jobs:
+  check_if_builds:
+    runs-on: ubuntu-latest
+    environment: MSoup Digital Ocean Droplet
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Install dependencies
+        run: |
+          cd front
+          npm ci
+
+      - name: Build application
+        run: |
+          cd front
+          npm run build
+      
+      - name: Check if there are contents in /out
+        run: ls /home/runner/work/tokyo-python-society-site/tokyo-python-society-site/front/out
+
