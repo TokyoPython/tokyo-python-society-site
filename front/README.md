@@ -1,14 +1,4 @@
-# Below is the default readme provided by the theme. See DEV_NOTES.md for more information on developing here
-
-🚀 Landing Page theme written in Next.js, Tailwind CSS and TypeScript ⚡️ Made with developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, VSCode, Netlify, PostCSS, Tailwind CSS.
-
-Clone this project and use it to create your own [Next.js](https://nextjs.org) project. You can check a [Next js templates demo](https://creativedesignsguru.com/demo/nextjs-landing-page/).
-
-### DEMO
-
-[![Nextjs Landing Page Template Screenshot](public/assets/images/nextjs-landing-page-screenshot.png?raw=true)](https://creativedesignsguru.com/demo/nextjs-landing-page/)
-
-Check out our [live demo](https://creativedesignsguru.com/demo/nextjs-landing-page/).
+# This is the default readme provided by the originally packaged theme. 
 
 ### Features
 
@@ -36,16 +26,6 @@ Built-in feature from Next.js:
 - 💨 Live reload
 - ✅ Cache busting
 
-### Included Components
-
-- Navbar
-- Hero
-- Features
-- CTA banner
-- Footer
-
-Find more components in our [premium NextJS themes](https://creativedesignsguru.com/category/nextjs/).
-
 ### Philosophy
 
 - Minimal code
@@ -58,47 +38,21 @@ Build your SaaS product faster with [React SaaS Boilerplate](https://nextlessjs.
 
 [![React SaaS Boilerplate Next.js](https://creativedesignsguru.com/assets/images/themes/next-js-saas-starter-kit.jpg)](https://nextlessjs.com)
 
-### Premium Themes
-
-| [Green Nextjs Landing Page Template](https://creativedesignsguru.com/landing-green-modern-nextjs-theme/) | [Purple Saas Nextjs Theme](https://creativedesignsguru.com/landing-purple-modern-react-theme/) |
-| --- | --- |
-| [![Green Nextjs Landing Page Template](https://creativedesignsguru.com/assets/images/themes/landing-green-modern-nextjs-theme-xs.png)](https://creativedesignsguru.com/landing-green-modern-nextjs-theme/) | [![Blue Landing Page Nextjs Theme](https://creativedesignsguru.com/assets/images/themes/landing-blue-modern-nextjs-theme-xs.png)](https://creativedesignsguru.com/landing-blue-modern-react-theme/) |
-
-Find more [Nextjs Templates](https://creativedesignsguru.com/category/nextjs/).
-
 ### Requirements
 
 - Node.js and npm
 
-### Getting started
-
-Run the following command on your local environment:
-
-```
-git clone --depth=1 https://github.com/ixartz/Next-JS-Landing-Page-Starter-Template.git my-project-name
-cd my-project-name
-npm install
-```
-
-Then, you can run locally in development mode with live reload:
-
-```
-npm run dev
-```
-
-Open http://localhost:3000 with your favorite browser to see your project. For your information, Next JS need to take some time to compile the project for your first time.
-
+### A Peek Inside (May differ from current setup)
 ```
 .
 ├── README.md            # README file
 ├── next.config.js       # Next JS configuration
 ├── public               # Public folder
 │   └── assets
-│       └── images       # Image used by default template
+│       └── images       # Images used by the app
 ├── src
 │   ├── background       # Atomic background component
 │   ├── button           # Atomic button component
-│   ├── cta              # Atomic cta component
 │   ├── feature          # Atomic feature component
 │   ├── footer           # Atomic footer component
 │   ├── hero             # Atomic hero component
@@ -124,7 +78,6 @@ You can easily configure the theme. Please change the following file:
 - `src/templates/*`: the list of component blocks
 - `src/*`: other folders in src are the atomic components used by components blocks
 
-Here is the layer:
 
 - the entry point: `index.tsx` in `src/pages`
 - the `Base` template: `Base.tsx` in `src/templates`

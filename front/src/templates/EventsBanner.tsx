@@ -17,6 +17,7 @@ const EventsBanner = () => {
         const eventsList: IEventResponse[] = response!.data.groupeventlist;
         setData(eventsList);
       } catch (error) {
+        console.log(error);
         // Axios / network error
         setVisible(false);
         setData([

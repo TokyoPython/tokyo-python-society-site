@@ -1,3 +1,6 @@
+// API refers to the backend endpoint
+const API = 'http://localhost:8000';
+
 export const AppConfig = {
   site_name: 'Tokyo Python Society',
   title: 'Tokyo Python Society',
@@ -18,6 +21,6 @@ export const AppConfig = {
     },
   },
   API: {
-    MEETUP_URL: process.env.NEXT_PUBLIC_MEETUP_URL,
+    MEETUP_URL: API,
   },
 };
