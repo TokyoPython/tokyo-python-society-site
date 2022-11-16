@@ -58,6 +58,7 @@ This will install everything needed to get the backend running. The core app con
 - psycopg2
 - sqlmodel
 - dotenv
+- requests
 
 Everything else seen in requirements.txt are dependencies of the above.
 
