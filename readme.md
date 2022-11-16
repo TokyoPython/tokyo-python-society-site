@@ -1,5 +1,97 @@
 # Tokyo Python Society Site - Overview Proposal
 
+# Getting Started
+
+## Requirements:
+
+Python 3.10  
+NodeJS v14.15.0 and npm
+
+# Setting up the Backend
+
+## Step 1
+
+Clone repository
+
+`git clone git@github.com:TokyoPython/tokyo-python-society-site.git`
+
+## Step 2
+
+Create Python virtual environment within the project root directory
+
+```bash
+$ cd tokyo-python-society-site
+
+# Windows
+
+$ python -m venv venv
+$ source venv/Scripts/activate
+
+# MacOS/Linux
+
+$ python -m venv venv
+$ source venv/bin/activate
+```
+
+If this succeeds, you should see (venv) or an indicator that you are in a virtual environment.
+
+## Step 3 - Install Dependencies
+
+`pip install -r requirements.txt`
+
+## Step 4 - Set Environment Variables
+
+In the same `back` directory, create an `.env` file and put environment variables into it. The bare minimum you will need to place inside of it is:
+
+```bash
+MEETUP_GRAPHQL_URL="https://api.meetup.com/gql"
+```
+
+## Step 5 - Check that the backend runs successfully
+
+In `back`, run the command `uvicorn main:app --reload`
+
+Side note: as the project grows, we may want to add other flags or commands to the above command. In order to avoid having to remember the command, there is also a `run.sh` script that can also optionally be run instead of `uvicorn main:app --reload`
+
+Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) from a browser or send a get request to the above URL. If you get a response with data
+
+```bash
+{
+Hello: "World"
+}
+```
+
+You have successfully got the backend up and running. You may now begin contributing to the backend.
+
+# Setting up the Frontend
+
+## Step 1 - Install Front Dependencies
+
+Move to the front directory and run `npm install`
+
+```bash
+$ cd front
+$ npm install
+```
+
+This will produce a `node_modules` directory with all dependencies. 
+
+## Step 2 - Run the project in dev mode
+
+`npm run dev`
+
+To check that the project runs successfully, go to [`http://localhost:3000/`](http://localhost:3000/)
+
+## Finished
+
+The frontend and backend are successfully connected if there is meetup event information at the bottom of the page. It should be viewable even if you are running both the back and frontend locally.
+
+You are now ready to begin developing on this project.
+
+The `production` branch is the live production version of the site. When making changes and adding features, be sure to create a branch from `production`.
+
+## Extra Information
+
 ## Tools Used in Development
 
 Language: Python 3.10  
@@ -12,95 +104,19 @@ Front: JavaScript, Reactjs, Nextjs
 ## Frontend
 The frontend is compiled and bundled with Nextjs from a barebones template design. 
 
-For more information for design decisions and implementation please see `front/README.md`
-
 ## Branch Information
 
-- main
-As of 10/29 we are committing directly to main, as the content is not yet ready to be opened up to the public to be worked on.
-
 - production  
-This is the production branch. Changes to this branch will ultimately affect the live site.
-10/22: As of now, there is no production branch. It will not be ready until the site is at least somewhat presentable
+This is the production branch. Changes to this branch will ultimately affect the live site. It is currently locked down and must be modified via pull requests. A PR will trigger a github actions CI CD script where a build test happens. If build succeeds, merging to production is possible. Upon merge, another CI CD script takes the production bundle and uploads it to the live server. 
 
-- dev  
-This is the development branch. Changes to this branch are local. 
+- dev
+As of 11/16/2022 there is no staging environment. I suppose the site won't get so complicated as to need both staging and production, however, things may change in the near future depending on how we want to evolve the web application.
 
-## Setting Up the Environment (Back)
-
-1. Install Python 3.10
-
-2. Create a virtual environment to install dependencies. 
-*I recommend venv as it is packaged with python.*
-(venv documentation here https://docs.python.org/3/library/venv.html)
-
-```
-Example using venv (Windows)
-
-$ python -m venv venv
-$ source venv/Scripts/activate
-
-Example using venv (MacOS/Linux)
-
-$ python -m venv venv
-$ source venv/bin/activate
-
-```
-
-After the above two lines, you should see (venv) or something similar in your terminal. 
-
-3. While inside your virtual environment, run `pip install -r requirements.txt`
-
-This will install everything needed to get the backend running. The core app consists of:
-- Pytest
-- FastAPI
-- uvicorn
-- psycopg2
-- sqlmodel
-- dotenv
-- requests
-
-Everything else seen in requirements.txt are dependencies of the above.
-
-3. Install the appropriate code formatter. See `Tools` above for the formatter we use. 
-
-4. Set an .env file. The app will not run without this. It is not stored in source control for security reasons. Please see `back/readme.md` for more information.
-
-## Running the App (Backend)
-
-`uvicorn main:app --reload`
-
-## Checking to see that the app works as intended (Back)
-
-Please complete the above steps before moving here.
-
-Visit `http://127.0.0.1:8000` and you should see {"Hello": "World"} as a JSON response. If you do not, please ask the Python Society group for troubleshooting help.
-
-If you have gotten this far, then your backend has been set up for development.
-
-## Seeing the endpoints
+## Viewing the endpoints
 
 `http://127.0.0.1:8000/docs`
 
-^ Provided by Swagger UI
 
 ## Alternative API docs
 
 `http://127.0.0.1:8000/redoc`
-
-
-
-
-## Setting Up the Environment (Front)
-Create a .env.local file at `/front` and add `MEETUP_URL=http://localhost:8000` to the environment file. 
-
-The app will not work without being able to access the MEETUP_URL endpoint. 
-
-From the /front directory run `npm install`
-
-## Running the App (Front)
-For development, run `npm run dev`
-
-Then visit `http://localhost:3000` and verify that the page successfully loads. 
-
-The frontend and backend are successfully connected if there is meetup event information at the bottom of the page. 

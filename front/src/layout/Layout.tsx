@@ -6,25 +6,32 @@ import { Base } from '../templates/Base';
 import { Footer } from '../templates/Footer';
 import { Header } from '../templates/Header';
 import { Hero } from '../templates/Hero';
+import { AppConfig } from '../utils/AppConfig';
+import { Meta } from './Meta';
 import { Section } from './Section';
 
 export default function Layout({ children }: { children: ReactNode }) {
   const router = useRouter();
-
-  if (router.pathname === '/') {
-    return (
-      <>
-        <Header />
-        <Hero />
-        <Base />
-        <Footer />
-      </>
-    );
-  }
+  console.log(children);
   return (
     <>
+      <Meta
+        title={
+          router.pathname === '/'
+            ? AppConfig.title
+            : `Tokyo Python: ${router.pathname}`
+        }
+        description={AppConfig.description}
+      />
       <Header />
-      <Section>{children}</Section>
+      {router.pathname === '/' ? (
+        <>
+          <Hero />
+          <Base />
+        </>
+      ) : (
+        <Section>{children}</Section>
+      )}
       <Footer />
     </>
   );
